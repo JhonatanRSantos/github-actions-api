@@ -31,9 +31,11 @@ jobs:
 
       - name: Run all tests
         run: cd lambda && yarn && yarn coverage
-      
+
       - name: Save coverage report
-        run: cd lambda && yarn codecov && sudo bash <(curl -s https://codecov.io/bash)
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
   
   # This job will check the lint
   lint_lambda:
