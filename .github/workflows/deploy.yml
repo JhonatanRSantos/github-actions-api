@@ -12,8 +12,8 @@ jobs:
   test_lambda:
     runs-on: ubuntu-latest
     
-    env:
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    # env:
+    #   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - name: Cloning the repository
