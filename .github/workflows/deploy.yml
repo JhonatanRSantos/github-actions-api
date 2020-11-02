@@ -31,8 +31,8 @@ jobs:
       - name: Installing curl
         run: apt install curl
         
-      - name: Save coverage report
-        run: yarn codecov && bash <(curl -s https://codecov.io/bash)
+      # - name: Save coverage report
+      #   run: yarn codecov && bash <(curl -s https://codecov.io/bash)
 
   # This job will check the lint
   lint_lambda:
