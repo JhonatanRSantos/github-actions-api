@@ -26,9 +26,6 @@ jobs:
       - name: Installing yarn 
         run: npm install -g yarn
 
-      - name: Install curl
-        run: sudo apt install curl
-
       - name: Run all tests
         run: cd lambda && yarn && yarn coverage
 
