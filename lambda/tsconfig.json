@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "checkJs": false,
+
+    "preserveConstEnums": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+
+    "inlineSources": true,
+    "sourceMap": true,
+    "declaration": true,
+    "target": "es2017",
+    "lib": [
+      "es2017"
+    ],
+    "esModuleInterop": true,
+    "importHelpers": true,
+    
+    "outDir": ".build",
+    "sourceRoot": "./",
+    "rootDirs": ["./"],
+    "baseUrl": "./",
+
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "paths": {
+      "functions/*": ["functions/*"],
+      "libs/*": ["./libs/*"],
+      "config/*": ["./config/*"],
+      "tests/*": ["./tests/*"],
+      "*": ["./node_modules"]
+    }
+  }
+}
