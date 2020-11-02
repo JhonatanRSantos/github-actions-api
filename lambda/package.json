@@ -11,7 +11,8 @@
     "coverage": "STAGE=test NODE_ENV=test jest --coverage --no-cache",
     "test:watchAll": "STAGE=test NODE_ENV=test jest --watchAll",
     "lint": "eslint . --ext .ts",
-    "lintAll": "eslint . --ext .ts --fix"
+    "lintAll": "eslint . --ext .ts --fix",
+    "codecov": "./node_modules/.bin/codecov"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -25,6 +26,7 @@
     "@typescript-eslint/parser": "^4.6.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "codecov": "^3.8.0",
     "eslint": "^5.12.0",
     "eslint-config-google": "^0.11.0",
     "eslint-config-prettier": "^6.0.0",
