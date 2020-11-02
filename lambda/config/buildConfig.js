@@ -18,26 +18,26 @@ const awsSecret = envVariable.aws_secretAccessKey;
 const awsRegion = envVariable.aws_defaultRegion;
 
 const baseVariables = {
-  ENVIRONMENT: stage,
+  ENVIRONMENT : stage,
 
-  AWS: {
-    ACCESS_KEY_ID: awsKey,
-    SECRET_ACCESS_KEY: awsSecret,
-    REGION: awsRegion,
+  AWS : {
+    ACCESS_KEY_ID     : awsKey,
+    SECRET_ACCESS_KEY : awsSecret,
+    REGION            : awsRegion,
   },
 
 };
 
 // Write a CONFIG.json file with all the base configuration!
 fs.writeFileSync(
-  path.join(__dirname, 'config.json'),
-  JSON.stringify(baseVariables, null, 2)
+    path.join(__dirname, 'config.json'),
+    JSON.stringify(baseVariables, null, 2)
 );
 
 // Write the AWS credentials file
 fs.writeFileSync(
-  './credentials',
-  '[default]\n' +
+    './credentials',
+    '[default]\n' +
   `aws_access_key_id=${awsKey}\n` +
   `aws_secret_access_key=${awsSecret}\n` +
   `region=${awsRegion}\n`
