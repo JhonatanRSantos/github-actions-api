@@ -10,8 +10,8 @@
     "buildConfig": "node ./config/buildConfig.js",
     "coverage": "STAGE=test NODE_ENV=test jest --coverage --no-cache",
     "test:watchAll": "STAGE=test NODE_ENV=test jest --watchAll",
-    "lint": "eslint . --ext .ts",
-    "lintAll": "eslint . --ext .ts --fix"
+    "lint": "eslint . --ext .ts,.js",
+    "lintAll": "eslint . --ext .ts,.js --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

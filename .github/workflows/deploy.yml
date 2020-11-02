@@ -11,36 +11,53 @@ jobs:
   # This job will test the lambda files
   test_lambda:
     runs-on: ubuntu-latest
+    env:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - name: Cloning the repository
         uses: actions/checkout@v2
       
-      - name: Installing and cofiguring node
+      - name: Installing node
         uses: actions/setup-node@v1
         with:
           node-version: '10'
-      - run: npm install -g yarn
 
+      - name: Installing yarn 
+        run: npm install -g yarn
+
+      - name: Installing project dependencies
+        run: cd lambda && yarn
+        
       - name: Run all tests
-        run: cd lambda && yarn && yarn coverage
+        run: cd lambda && yarn coverage
+
+      - name: Save coverage report
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
   
   # This job will check the lint
   lint_lambda:
     runs-on: ubuntu-latest
-    
+        
     steps:
       - name: Cloning the repository
         uses: actions/checkout@v2
 
-      - name: Installing and cofiguring node
+      - name: Installing node
         uses: actions/setup-node@v1
         with:
           node-version: '10'
-      - run: npm install -g yarn
+      
+      - name: Installing yarn
+        run: npm install -g yarn
+      
+      - name: Installing project dependencies
+        run: cd lambda && yarn
 
       - name: Check the code lint
-        run: cd lambda && yarn && yarn lint
+        run: cd lambda && yarn lint
 
   # Deploy all changes to dev environment
   deploy_lambda:
