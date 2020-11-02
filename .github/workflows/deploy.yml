@@ -18,20 +18,22 @@ jobs:
       - name: Cloning the repository
         uses: actions/checkout@v2
       
-      - name: Installing and cofiguring node
+      - name: Installing node
         uses: actions/setup-node@v1
         with:
           node-version: '10'
-      - run: npm install -g yarn
+
+      - name: Installing yarn 
+        run: npm install -g yarn
+
+      - name: Install curl
+        run: sudo apt install curl
 
       - name: Run all tests
         run: cd lambda && yarn && yarn coverage
       
-      - name: Install curl
-        run: sudo apt install curl
-
       - name: Save coverage report
-        run: yarn codecov && sudo bash <(curl -s https://codecov.io/bash)
+        run: cd lambda && yarn codecov && sudo bash <(curl -s https://codecov.io/bash)
   
   # This job will check the lint
   lint_lambda:
