@@ -42,6 +42,7 @@ cd $DEPLOY_TYPE
 yarn
 
 yarn buildConfig
+mkdir ~/.aws
 mv ./credentials ~/.aws/credentials
 
 if [ "$FUNCTION_NAME" != "" ]; then
