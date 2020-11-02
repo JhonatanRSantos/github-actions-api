@@ -11,6 +11,9 @@ jobs:
   # This job will test the lambda files
   test_lambda:
     runs-on: ubuntu-latest
+    
+    env:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - name: Cloning the repository
@@ -24,7 +27,13 @@ jobs:
 
       - name: Run all tests
         run: cd lambda && yarn && yarn coverage
-  
+      
+      - name: Installing curl
+        run: apt install curl
+        
+      - name: Save coverage report
+        run: yarn codecov && bash <(curl -s https://codecov.io/bash)
+
   # This job will check the lint
   lint_lambda:
     runs-on: ubuntu-latest
@@ -40,7 +49,7 @@ jobs:
       - run: npm install -g yarn
 
       - name: Check the code lint
-        run: cd lambda && yarn && yarn lint
+        exrun: cd lambda && yarn && yarn lint
 
   # Deploy all changes to dev environment
   deploy_lambda:
