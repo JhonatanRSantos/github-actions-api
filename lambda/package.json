@@ -1,5 +1,5 @@
 {
-  "name": "api_ci_cd",
+  "name": "github_actions_api",
   "version": "1.0.0",
   "description": "This is a simple API with CI/CD",
   "author": "Jhonatan R. Santos",

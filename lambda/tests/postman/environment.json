@@ -1,0 +1,14 @@
+{
+	"id": "3d6f7b9a-3a1e-4c05-ab97-e8bae59b9c1b",
+	"name": "LOCAL",
+	"values": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8000/local",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-11-03T00:49:08.195Z",
+	"_postman_exported_using": "Postman/7.35.0"
+}

@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "50d969e4-fb8c-4b5f-a98d-6154cf1102de",
+		"name": "Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Main",
+			"item": [
+				{
+					"name": "Main",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e2fa6bf9-b6ce-406d-9cf2-4f2b006853ed",
+								"exec": [
+									"pm.test('Should correctly 200 Ok status', () => {",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.have.body();",
+									"});",
+									"",
+									"pm.test('Should correctly have all 200 OK properties', () => {",
+									"    const { status, message, date } = pm.response.json();",
+									"",
+									"    pm.expect(status).to.be.eq(200);",
+									"    pm.expect(message).to.be.eq('The API is online');",
+									"    pm.expect(date).to.be.a('string');",
+									"});",
+									"",
+									"console.info(`Finishing login test`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}",
+							"host": [
+								"{{BASE_URL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
