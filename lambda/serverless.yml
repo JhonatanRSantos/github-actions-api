@@ -1,4 +1,4 @@
-service: apiCiCd
+service: githubActionsApi
 
 frameworkVersion: '2'
 
