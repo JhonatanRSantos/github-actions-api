@@ -56,7 +56,7 @@ jobs:
         run: cd lambda && yarn
 
       - name: Run locally
-        run: bash deploy.sh lambda debug
+        run: bash deploy.sh lambda test
 
       - name: Run API Tests
         id: run-newman
