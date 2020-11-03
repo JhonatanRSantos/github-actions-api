@@ -39,6 +39,9 @@ jobs:
   
   test_lambda_with_postman:
     runs-on: ubuntu-latest
+    env:
+      DEV_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+      GIT_ACTION: ${{ secrets.DEV_ENVIRONMENT }}
 
     steps:
       - name: Cloning the repository
