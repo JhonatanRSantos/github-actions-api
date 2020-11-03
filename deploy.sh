@@ -42,7 +42,11 @@ cd $DEPLOY_TYPE
 yarn
 
 yarn buildConfig
-mkdir ~/.aws
+
+if [ -d "~/.aws" ]; then
+  mkdir ~/.aws
+fi
+
 mv ./credentials ~/.aws/credentials
 
 if [ "$FUNCTION_NAME" != "" ]; then
@@ -53,6 +57,7 @@ elif [ "$ENVIRONMENT" == "local" ] || [ "$ENVIRONMENT" == "debug" ]; then
   yarn serverless offline --stage=local --httpPort=8000
 else
   yarn serverless deploy --stage=${ENVIRONMENT}
+  # Destroy all lambdas
   # yarn serverless remove --stage=${ENVIRONMENT}
 fi
 
